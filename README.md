@@ -1,8 +1,6 @@
-# Taquito React template
+# Tezos SImple Calculator
 
-![Built with Taquito][logo]
-
-A minimal React setup for starting developing Tezos DApps quickly with Taquito.
+A minimal React setup for carrying out calculations on the Tezos Blockchain and built with Taquito.
 
 ## Getting Started
 
