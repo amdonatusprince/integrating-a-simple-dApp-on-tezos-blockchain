@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TezosToolkit } from "@taquito/taquito";
 import "./App.css";
 import ConnectButton from "./components/ConnectWallet";
@@ -10,6 +10,7 @@ const App = () => {
   const [Tezos, setTezos] = useState<TezosToolkit>(
     new TezosToolkit("https://ghostnet.ecadinfra.com")
   );
+  
 
   const [contract, setContract] = useState<any>(undefined);
   const [publicToken, setPublicToken] = useState<string | null>(null);
@@ -30,6 +31,7 @@ const App = () => {
 
     return { __html: qr.createImgTag(4) };
   };
+  
 
   if (publicToken && (!userAddress || isNaN(userBalance))) {
     return (
@@ -135,21 +137,18 @@ const App = () => {
             setBeaconConnection={setBeaconConnection}
           />
         </div>
-        <div id="footer">
-          <img src="built-with-taquito.png" alt="Built with Taquito" />
-        </div>
       </div>
     );
   } else if (!publicToken && !userAddress && !userBalance) {
     return (
       <div className="main-box">
         <div id="dialog">
-          <header>Welcome to Tezos Transfer dApp!</header>
+          <header>Welcome to Tezos Calculator dApp!</header>
           <div id="content">
             <p>Hello!</p>
             <p>
-              This is a Tezos dApp built using Taquito. It's helping users to send tokens
-              from their wallet to another wallet
+              This is a Tezos dApp built using Taquito. It's helping users carry out simple
+              arithmetic calculations.
               <br />
             </p>
             <p>Go forth and Tezos!</p>
@@ -167,9 +166,7 @@ const App = () => {
             wallet={wallet}
           />
         </div>
-        <div id="footer">
-          <img src="built-with-taquito.png" alt="Built with Taquito" />
-        </div>
+
       </div>
     );
   } else {

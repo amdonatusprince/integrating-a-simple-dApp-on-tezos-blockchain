@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { TezosToolkit, WalletContract } from "@taquito/taquito";
 
 interface CalculatorContractProps {
@@ -74,11 +74,15 @@ const CalculatorContract = ({ contract, setUserBalance, Tezos, userAddress, setS
       </button>
       <div id="transfer-inputs">
         <label>Enter a Number (B):</label>
-        <input type="number" value={y} onChange={(e) => setY(Number(e.target.value))} />
+        <input type="text" 
+        placeholder="Enter a number"
+        value={y} onChange={(e) => setY(Number(e.target.value))} />
       </div>
       <div id="transfer-inputs">
         <label>Enter a Number (A):</label>
-        <input type="number" value={x} onChange={(e) => setX(Number(e.target.value))} />
+        <input type="text"
+        placeholder="Enter another number" 
+        value={x} onChange={(e) => setX(Number(e.target.value))} />
       </div>
 
     </div>
